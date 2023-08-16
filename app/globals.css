@@ -3,25 +3,43 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  @apply bg-white
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    @apply bg-fuchsia-950
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-white
+}
+
+main {
+  @apply container lg:max-w-screen-lg mx-auto px-8 py-8
+}
+
+h1 {
+  @apply text-5xl font-medium mb-4
+}
+
+h2 {
+  @apply text-lg font-medium mb-2 mt-6
+}
+
+h6 {
+  @apply text-base font-medium
+}
+
+p {
+  @apply mb-4
+}
+
+ul {
+  @apply list-disc list-inside ml-4 text-sm
+}
+
+li {
+  @apply mb-1 last:mb-0
 }
