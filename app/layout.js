@@ -1,18 +1,20 @@
+import { AppContextProvider } from './context/appContext'
 import './globals.css'
-import { Inter } from 'next/font/google';
+import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata = {
-  title: 'Restaurant App',
-  description: 'Built by Ghosty @ Blacksla.sh',
-}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Restaurant App</title>
+        <meta name='description' content='Built by Ghosty @ Blacksla.sh' />
+      </head>
       <body className={inter.className}>
-        {children}
+        <AppContextProvider>
+          {children}
+        </AppContextProvider>
       </body>
     </html>
   )
