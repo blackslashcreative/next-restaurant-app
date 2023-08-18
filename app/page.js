@@ -1,27 +1,29 @@
 'use client'
-import Image from 'next/image';
-import Link from 'next/link';
-import Layout from './layout.js';
+import RestaurantList from './components/restaurantlist';
 import { useAppContext } from './context/appContext';
+import { useQuery, ApolloProvider, InMemoryCache } from '@apollo/client';
+import client from './client';
+import { useState } from 'react';
 
-const restaurants = [
-  {name:"WoodsHill"},
-  {name:"Fiorellas"},
-  {name:"Karma"}
-];
-
-export default function Home() {
-
+function Home() {
+  const [query, setQuery] = useState("");
   return (
     <main>
-      <h1>Hello World</h1>
-      {restaurants.map( item => {
-        return <div>
-          <Link as={"/restaurants/"+item.name} href="restaurants/[restaurant]">
-            {item.name}
-          </Link>
-        </div>
-      })}
+      <h1>Search Restaurants</h1>
+      <div className="search">
+        <input 
+          type="text"
+          value={query}
+          onChange={(e) =>
+            setQuery(e.target.value.toLocaleLowerCase())
+          }
+        />
+      </div>
+      <ApolloProvider client={client}>
+        <RestaurantList search={query} />
+      </ApolloProvider>
     </main>
   )
 }
+
+export default Home;

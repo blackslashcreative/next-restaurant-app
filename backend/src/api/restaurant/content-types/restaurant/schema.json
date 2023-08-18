@@ -4,7 +4,8 @@
   "info": {
     "singularName": "restaurant",
     "pluralName": "restaurants",
-    "displayName": "Restaurants"
+    "displayName": "Restaurants",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,13 @@
     },
     "Description": {
       "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
