@@ -30,7 +30,7 @@ function RestaurantList(props) {
   if (loading) return <p>Loading...</p>;
   if (error)   return <p>ERROR</p>;
   if (!data)   return <p>Nothing found...</p>;
-  console.log(data.restaurants.data);
+  //console.log(data.restaurants.data);
 
   const searchQuery = data.restaurants.data.filter((res) => 
    res.attributes.Name.toLowerCase().includes(props.search)

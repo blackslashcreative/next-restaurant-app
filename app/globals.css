@@ -36,7 +36,7 @@ p {
   @apply mb-4
 }
 
-ul {
+ul:not(.navbar) {
   @apply list-disc list-inside ml-4 text-sm
 }
 
@@ -50,4 +50,8 @@ li {
 
 button {
   @apply bg-fuchsia-950 hover:bg-fuchsia-900 text-white py-2 px-4 !rounded
+}
+
+.navbar .container {
+  @apply px-0
 }

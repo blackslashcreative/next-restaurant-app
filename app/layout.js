@@ -1,6 +1,8 @@
 import { AppContextProvider } from './context/appContext'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Navigation from './components/navigation'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,6 +15,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <AppContextProvider>
+          <Navigation/>
           {children}
         </AppContextProvider>
       </body>

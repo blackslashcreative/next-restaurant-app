@@ -11,23 +11,23 @@ function Home() {
   const [query, setQuery] = useState("");
   return (
     <main>
-      <div className="search">
-        <h1>Search Restaurants</h1>
-        <InputGroup>
-          <Input
-            placeholder="Type to search"
-            type="text"
-            value={query}
-            onChange={(e) =>
-              setQuery(e.target.value.toLocaleLowerCase())
-            }
-          />
-        </InputGroup> 
-      </div>
       <ApolloProvider client={client}>
+        <div className="search">
+          <h1>Search Restaurants</h1>
+          <InputGroup>
+            <Input
+              placeholder="Type to search"
+              type="text"
+              value={query}
+              onChange={(e) =>
+                setQuery(e.target.value.toLocaleLowerCase())
+              }
+            />
+          </InputGroup> 
+        </div>
         <RestaurantList search={query} />
+        <Cart></Cart>
       </ApolloProvider>
-      <Cart></Cart>
     </main>
   )
 }
