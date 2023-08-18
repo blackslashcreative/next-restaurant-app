@@ -1,5 +1,6 @@
 'use client'
 import RestaurantList from './components/restaurantlist';
+import Cart from './components/cart';
 import { useAppContext } from './context/appContext';
 import { useQuery, ApolloProvider, InMemoryCache } from '@apollo/client';
 import client from './client';
@@ -26,6 +27,7 @@ function Home() {
       <ApolloProvider client={client}>
         <RestaurantList search={query} />
       </ApolloProvider>
+      <Cart></Cart>
     </main>
   )
 }
