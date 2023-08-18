@@ -2,6 +2,8 @@ import { useQuery, gql } from '@apollo/client';
 import Link from 'next/link';
 import Dishes from './dishes';
 import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, CardBody, CardImg, CardText, Container, Row, Col } from 'reactstrap';
 
 function RestaurantList(props) {
   const [restaurantID, setRestaurantID] = useState(0);
@@ -46,27 +48,35 @@ function RestaurantList(props) {
     };
 
     const restList = searchQuery.map((res) => (
-      <div>
-        <img src={`http://localhost:1337` + res.attributes.Image.data.attributes.url} />
-        <div>
-          {res.attributes.Description}
-        </div>
-        <div className="card-footer">
-          <Link key={res.attributes.Name} as={"/restaurants/"+res.attributes.Name} href="restaurants/[restaurant]">
-            {res.attributes.Name}
-          </Link>
-        </div>
-      </div>
+      <Col xs="6" sm="4" key={res.id}>
+        <Card>
+          <CardImg 
+            top={true}
+            style={{height:200}}
+            src={`http://localhost:1337` + res.attributes.Image.data.attributes.url}
+          />
+          <CardBody>
+            <CardText>{res.attributes.Description}</CardText>
+          </CardBody>
+          <div className="card-footer">
+            <Link key={res.attributes.Name} as={"/restaurants/"+res.attributes.Name} href="restaurants/[restaurant]">
+              <button onClick={()=>setRestaurantID(res.id)}>
+                {res.attributes.Name}
+              </button>
+            </Link>
+          </div>
+        </Card>
+      </Col>
     ))
     return (
-      <container>
-        <row>
+      <Container className="p-0">
+        <Row>
           {restList}
-        </row>
-        <row>
+        </Row>
+        <Row>
           {/* {renderDishes(restId)} */}
-        </row>
-      </container>
+        </Row>
+      </Container>
     )
   } else {
     return (

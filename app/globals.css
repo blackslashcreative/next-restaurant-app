@@ -43,3 +43,11 @@ ul {
 li {
   @apply mb-1 last:mb-0
 }
+
+.container .row {
+  @apply mt-6
+}
+
+button {
+  @apply bg-fuchsia-950 hover:bg-fuchsia-900 text-white py-2 px-4 !rounded
+}
