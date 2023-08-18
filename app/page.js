@@ -11,13 +11,10 @@ const restaurants = [
 ];
 
 export default function Home() {
-  const { working, setWorking} = useAppContext();
-  const { isAuthenticated, setIsAuthentica} = useAppContext();
 
   return (
     <main>
       <h1>Hello World</h1>
-      <p>Working? = {working}</p>
       {restaurants.map( item => {
         return <div>
           <Link as={"/restaurants/"+item.name} href="restaurants/[restaurant]">
