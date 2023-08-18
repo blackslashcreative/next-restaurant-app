@@ -8,7 +8,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @apply bg-fuchsia-950
+    @apply bg-purple-950
   }
 }
 
@@ -40,7 +40,7 @@ ul:not(.navbar) {
   @apply list-disc list-inside ml-4 text-sm
 }
 
-li {
+li:not(.nav-item) {
   @apply mb-1 last:mb-0
 }
 
@@ -49,9 +49,17 @@ li {
 }
 
 button {
-  @apply bg-fuchsia-950 hover:bg-fuchsia-900 text-white py-2 px-4 !rounded
+  @apply bg-purple-950 hover:bg-purple-900 text-white py-2 px-4 !rounded
 }
 
 .navbar .container {
   @apply px-0
+}
+
+.nav-link {
+  @apply !text-white
+}
+
+a:hover, .nav-link:hover {
+  @apply !text-purple-600
 }
