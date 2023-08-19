@@ -48,6 +48,10 @@ li:not(.nav-item) {
   @apply mt-6
 }
 
+.navbar-dark {
+  @apply !bg-violet-950
+}
+
 button {
   @apply bg-purple-950 hover:bg-purple-900 text-white py-2 px-4 !rounded
 }

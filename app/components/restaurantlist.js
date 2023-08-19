@@ -57,8 +57,10 @@ function RestaurantList(props) {
             src={`http://localhost:1337` + res.attributes.Image.data.attributes.url}
           />
           <CardBody>
+            <h4>{res.attributes.Name}</h4>
             <CardText>{res.attributes.Description}</CardText>
           </CardBody>
+          {/*
           <div className="card-footer">
             <Link key={res.attributes.Name} as={"/restaurants/"+res.attributes.Name} href="restaurants/[restaurant]">
               <button onClick={()=>setRestaurantID(res.id)}>
@@ -66,6 +68,7 @@ function RestaurantList(props) {
               </button>
             </Link>
           </div>
+          */}
         </Card>
       </Col>
     ))
