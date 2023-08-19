@@ -26,6 +26,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "Dishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dish.dish"
     }
   }
 }

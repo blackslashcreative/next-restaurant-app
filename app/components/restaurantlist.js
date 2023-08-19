@@ -7,6 +7,7 @@ import { Card, CardBody, CardImg, CardText, Container, Row, Col } from 'reactstr
 
 function RestaurantList(props) {
   const [restaurantID, setRestaurantID] = useState(0);
+
   const GET_RESTAURANTS = gql`
   {
     restaurants {
@@ -36,14 +37,14 @@ function RestaurantList(props) {
    res.attributes.Name.toLowerCase().includes(props.search)
   );
   
+  console.log(`searchQuery: ${searchQuery}`);
   if(searchQuery.length > 0){
     // set ID for first restaurant
     let restId = searchQuery[0].id;
     // define renderer for dishes
     const renderDishes = (restaurant_id) => {
       return (
-        // <Dishes restId={restaurant_id}></Dishes>
-        <p>TODO: Add dishes here</p>
+        <Dishes restId={restaurant_id}/>
       )
     };
 
@@ -73,14 +74,8 @@ function RestaurantList(props) {
         <Row>
           {restList}
         </Row>
-        <Row>
-          {/* {renderDishes(restId)} */}
-        </Row>
+        { props.search && <Row>{renderDishes(restId)}</Row> }
       </Container>
-    )
-  } else {
-    return (
-      <p>Nothing found...</p>
     )
   }
 }
