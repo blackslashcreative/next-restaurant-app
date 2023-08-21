@@ -1,16 +1,22 @@
-'use client'
+'use client';
 import { Container, Nav, NavItem } from 'reactstrap';
-import Link from 'next/link'
+import Link from 'next/link';
 import { useAppContext } from '../context/appContext';
 import Cookie from "js-cookie";
 
 
 function Navigation() {
   const { user, setUser } = useAppContext();
+  const { setCartState } = useAppContext();
 
   function handleLogout() {
     setUser(null);
     Cookie.remove("token");
+    const cart = {
+      items: [],
+      total: 0,
+    };
+    setCartState({cart:cart});
   }
   
   return (

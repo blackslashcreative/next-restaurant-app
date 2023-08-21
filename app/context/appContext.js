@@ -8,6 +8,7 @@ const AppContext = createContext({});
 export const AppContextProvider = ({ children }) => {
   
   const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const cart = {
     items: [],
@@ -119,7 +120,7 @@ export const AppContextProvider = ({ children }) => {
   }
   
   return (
-    <AppContext.Provider value={{ user, setUser, cart: cartState.cart, addItem: addItem, removeItem: removeItem }}>
+    <AppContext.Provider value={{ user, setUser, cart: cartState.cart, addItem: addItem, removeItem: removeItem, setCartState }}>
       {children}
     </AppContext.Provider>
   )
