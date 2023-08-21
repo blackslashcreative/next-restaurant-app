@@ -2,7 +2,6 @@ import { useQuery, gql } from '@apollo/client';
 import Link from 'next/link';
 import Dishes from './dishes';
 import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, CardBody, CardImg, CardText, Container, Row, Col } from 'reactstrap';
 
 function RestaurantList(props) {

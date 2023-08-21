@@ -2,7 +2,6 @@ import { useAppContext } from '../context/appContext';
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   // button

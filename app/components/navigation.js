@@ -2,10 +2,16 @@
 import { Container, Nav, NavItem } from 'reactstrap';
 import Link from 'next/link'
 import { useAppContext } from '../context/appContext';
+import Cookie from "js-cookie";
 
 
 function Navigation() {
   const { user, setUser } = useAppContext();
+
+  function handleLogout() {
+    setUser(null);
+    Cookie.remove("token");
+  }
   
   return (
     <Nav className="navbar bs-bg-dark">
@@ -17,7 +23,7 @@ function Navigation() {
         </NavItem>
         <NavItem className="ml-auto">
           {user ? (
-            <h5>{user.username}</h5>
+            <>Hi, {user.username}!</>
           ) : (
             <Link href="/register" className="nav-link">
               Sign Up
@@ -29,10 +35,7 @@ function Navigation() {
             <Link
               href="/"
               className="nav-link"
-              onClick={() => {
-                logout();
-                setUser(null);
-              }}
+              onClick={handleLogout}
             >
               Logout
             </Link>

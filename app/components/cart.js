@@ -6,7 +6,6 @@ import Image from 'next/image';
 function Cart() {
   let isAuthenticated = true; // ???
   const { cart, addItem, removeItem } = useAppContext();
-  console.log( `in cart: ${JSON.stringify(cart)}`);
 
   // Render items in cart
   const renderItems = () => {

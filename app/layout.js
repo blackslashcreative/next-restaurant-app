@@ -1,7 +1,11 @@
-import { AppContextProvider } from './context/appContext'
-import './globals.css'
-import { Inter } from 'next/font/google'
-import Navigation from './components/navigation'
+'use client';
+import { AppContextProvider } from './context/appContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './globals.css';
+import { Inter } from 'next/font/google';
+import Navigation from './components/navigation';
+import client from './client';
+import { ApolloProvider } from '@apollo/client';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,8 +19,10 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <AppContextProvider>
-          <Navigation/>
-          {children}
+          <ApolloProvider client={client}>
+            <Navigation/>
+            {children}
+          </ApolloProvider>
         </AppContextProvider>
       </body>
     </html>

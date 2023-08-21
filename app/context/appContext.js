@@ -1,22 +1,49 @@
-'use client'
-
-import { createContext, useContext, useState, useEffect } from 'react'
- 
-const AppContext = createContext({})
+'use client';
+import { createContext, useContext, useState, useEffect } from 'react';
+import Cookie from "js-cookie";
+import { gql } from "@apollo/client";
+import client from '../client';
+const AppContext = createContext({});
  
 export const AppContextProvider = ({ children }) => {
   
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const cart = {
     items: [],
     total: 0,
   };
   const [cartState, setCartState] = useState({cart:cart});
-  const user = useState(null);
 
-  const setUser = (user) => {
-    setState({ user });
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await getUser().catch(error => console.error(error));
+      setUser(userData);
+    };
+    fetchData();
+  }, []);
+
+  const getUser = async () => {
+    const token = Cookie.get("token");
+    if (!token) return null;
+    const { data } = await client.query({
+      query: gql`
+        query {
+          me {
+            id
+            email
+            username
+          }
+        }
+      `,
+      context: {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    });
+    return data.me;
+  };
 
   const addItem = (item) => {
     let { items } = cartState.cart;
@@ -92,7 +119,7 @@ export const AppContextProvider = ({ children }) => {
   }
   
   return (
-    <AppContext.Provider value={{ cart: cartState.cart, addItem: addItem, removeItem: removeItem, isAuthenticated, setIsAuthenticated, user, setUser }}>
+    <AppContext.Provider value={{ user, setUser, cart: cartState.cart, addItem: addItem, removeItem: removeItem }}>
       {children}
     </AppContext.Provider>
   )
