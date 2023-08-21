@@ -48,7 +48,7 @@ li:not(.nav-item) {
   @apply mt-6
 }
 
-.navbar-dark {
+.bs-bg-dark {
   @apply !bg-violet-950
 }
 
@@ -58,6 +58,10 @@ button {
 
 .navbar .container {
   @apply px-0
+}
+
+.navbar-brand {
+  @apply !text-white
 }
 
 .nav-link {
@@ -108,4 +112,8 @@ a:hover, .nav-link:hover {
 
 .cart-footer h5 {
   @apply inline-block ml-4
+}
+
+.checkout-cart.bs-bg-dark {
+  @apply !bg-violet-950
 }

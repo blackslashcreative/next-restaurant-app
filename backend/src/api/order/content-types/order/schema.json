@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "Orders"
+    "displayName": "Orders",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +17,7 @@
       "required": true
     },
     "Amount": {
-      "type": "decimal",
+      "type": "biginteger",
       "required": true
     },
     "Address": {
@@ -24,6 +25,14 @@
       "required": true
     },
     "City": {
+      "type": "string",
+      "required": true
+    },
+    "State": {
+      "type": "string",
+      "required": true
+    },
+    "Token": {
       "type": "string",
       "required": true
     }

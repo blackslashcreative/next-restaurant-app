@@ -8,7 +8,7 @@ function Navigation() {
   const { user, setUser } = useAppContext();
   
   return (
-    <Nav className="navbar navbar-dark">
+    <Nav className="navbar bs-bg-dark">
       <Container>
         <NavItem>
           <Link href="/" className="navbar-brand">

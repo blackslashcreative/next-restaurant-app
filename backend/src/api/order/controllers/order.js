@@ -1,9 +1,60 @@
-'use strict';
+"use strict";
+const stripe = require("stripe")("sk_test_U7evLr6LLMaWAye1au1TW5Uw");
 
 /**
- * order controller
+ *  order controller
  */
+const { createCoreController } = require("@strapi/strapi").factories;
+module.exports = createCoreController("api::order.order", ({ strapi }) => ({
+  async create(ctx) {
+    const user = ctx.state.user;
 
-const { createCoreController } = require('@strapi/strapi').factories;
+    if (!user) {
+      return ctx.unauthorized("You are not authorized!");
+    }
 
-module.exports = createCoreController('api::order.order');
+    console.log(ctx.request.body.data);
+    console.log(ctx.state.user.id);
+    console.log("order controller");
+
+    const { address, amount, dishes, token, city, state } =
+      ctx.request.body.data;
+
+    try {
+      // Charge the customer
+      await stripe.charges.create({
+        amount: amount,
+        currency: "usd",
+        description: `Order ${new Date()} by ${ctx.state.user.id}`,
+        source: token,
+      });
+
+      // Create the order
+      const order = await strapi.service("api::order.order").create({
+        data: {
+          amount,
+          address,
+          dishes,
+          city,
+          state,
+          token,
+          user: ctx.state.user.id,
+        },
+      });
+      return order;
+    } catch (err) {
+      // return 500 error
+      console.log("err", err);
+      ctx.response.status = 500;
+      return {
+        error: { message: "There was a problem creating the charge" },
+        address,
+        amount,
+        dishes,
+        token,
+        city,
+        state,
+      };
+    }
+  },
+}));
