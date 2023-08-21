@@ -67,3 +67,45 @@ button {
 a:hover, .nav-link:hover {
   @apply !text-purple-600
 }
+
+/*********************************************************
+ CART
+*********************************************************/
+#cart {
+  @apply mt-12
+}
+
+#cart .card hr {
+  @apply mb-0 mt-0
+}
+
+#cart .card-title {
+  padding-top: 7px;
+  padding-left: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  @apply mb-2
+}
+
+.cart-image {
+  width: 50px;
+  height: 50px;
+  @apply inline-block mr-1
+}
+
+.cart-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-footer {
+  @apply mt-6
+}
+
+.cart-footer h5 {
+  @apply inline-block ml-4
+}

@@ -26,7 +26,7 @@ function Home() {
           </InputGroup> 
         </div>
         <RestaurantList search={query} />
-        <Cart></Cart>
+        <Cart/>
       </ApolloProvider>
     </main>
   )

@@ -1,4 +1,4 @@
-// ?
+import { useAppContext } from '../context/appContext';
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -16,37 +16,9 @@ import {
   CardFooter} from 'reactstrap';
 function Dishes({restId}) {
   const [restaurantID, setRestaurantID] = useState();
-  /*
-  const GET_RESTAURANTS = gql`
-  {
-    restaurants {
-      data {
-        id
-        attributes {
-          Name
-          Dishes {
-            data {
-              id
-              attributes {
-                Name
-                Description
-                Price
-                Image {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }`;
-  */
- const GET_RESTAURANT_DISHES = gql`
+  const { addItem } = useAppContext();
+  
+  const GET_RESTAURANT_DISHES = gql`
   query getRestaurant($id: ID!) {
     restaurant(id: $id) {
       data {
@@ -95,7 +67,7 @@ function Dishes({restId}) {
     return (
       <>
       {restaurant.attributes.Dishes.data.map((res) => (
-        <Col xs="6" sm="4">
+        <Col xs="6" sm="4" key={res.id}>
           <Card>
             <CardImg
               top={true}
@@ -107,16 +79,15 @@ function Dishes({restId}) {
               <CardText>{res.attributes.Description}</CardText>
             </CardBody>
             <CardFooter>
-              <button>Add To Cart</button>
+              <button
+                onClick={() => { addItem(res) }}
+              >
+                Add To Cart
+              </button>
             </CardFooter>
           </Card>
         </Col>
       ))}
-      <Col xs="4">
-        <div>
-          Cart goes here
-        </div>
-      </Col>
       </>
     )
   }
