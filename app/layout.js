@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Restaurant App</title>
+        <title>Nybble</title>
         <meta name='description' content='Built by Ghosty @ Blacksla.sh' />
       </head>
       <body className={inter.className}>

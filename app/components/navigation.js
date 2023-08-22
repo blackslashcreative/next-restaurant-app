@@ -23,11 +23,10 @@ function Navigation() {
           <Link href="/" className="navbar-brand">
             <Image
               src="img/logo-white.svg"
-              className="form-logo"
-              width={54}
-              height={54}
+              width={50}
+              height={50}
               alt="Restaurant App Logo"
-            />
+            /> nybble
           </Link>
         </NavItem>
         <NavItem className="ml-auto">

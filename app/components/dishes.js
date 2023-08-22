@@ -70,11 +70,11 @@ function Dishes({restId}) {
           <Card>
             <CardImg
               top={true}
-              style={{ height:150, width:150 }}
+              style={{height:200}}
               src={`http://localhost:1337${res.attributes.Image.data.attributes.url}`}
             />
             <CardBody>
-              <CardTitle>{res.attributes.Name}</CardTitle>
+              <CardTitle><h2>{res.attributes.Name}</h2></CardTitle>
               <CardText>{res.attributes.Description}</CardText>
             </CardBody>
             <CardFooter>

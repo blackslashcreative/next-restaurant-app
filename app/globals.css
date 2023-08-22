@@ -35,6 +35,10 @@ h1 {
   @apply text-5xl font-medium mb-4
 }
 
+.home h1 {
+  @apply text-8xl
+}
+
 h2 {
   @apply text-lg font-medium mb-2 mt-6
 }
@@ -76,7 +80,11 @@ button {
 }
 
 .navbar-brand {
-  @apply !text-white block
+  @apply !text-white block text-center
+}
+
+.navbar-brand img {
+  @apply mx-auto
 }
 
 .navbar li, 
@@ -115,12 +123,21 @@ a:hover, .nav-link:hover {
   @apply mb-2 text-4xl pt-4
 }
 
+.form-control:focus {
+  @apply border-purple-100;
+  box-shadow: 0 0 0 0.25rem rgba(95, 12, 211, 0.2);
+}
+
 
 /*********************************************************
  CART
 *********************************************************/
 #cart {
   @apply mt-12
+}
+
+#cart .card, .home .card {
+  min-height: auto;
 }
 
 #cart .card-title {
@@ -178,6 +195,10 @@ a:hover, .nav-link:hover {
 /*********************************************************
  ELEMENT: CARD LISTS
 *********************************************************/
+.card {
+  min-height: 395px;
+}
+
 .card-body h2 {
   @apply mt-0 mb-1 text-xl
 }
