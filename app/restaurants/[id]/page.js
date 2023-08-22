@@ -48,7 +48,7 @@ export default function Restaurant({params}) {
   let restaurant = data.restaurant.data;
 
   return (
-    <main class="container">
+    <main className="container">
       <h1>{restaurant.attributes.Name}</h1>
       <Row>
         <Dishes restId={params.id}/>

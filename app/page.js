@@ -6,7 +6,7 @@ import { InputGroup, Input } from 'reactstrap';
 function Home() {
   const [query, setQuery] = useState("");
   return (
-    <main class="home">
+    <main className="home">
       <div className="search">
         <h1>Hungry?</h1>
         <InputGroup>

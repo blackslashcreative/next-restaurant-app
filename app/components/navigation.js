@@ -1,6 +1,7 @@
 'use client';
 import { Container, Nav, NavItem } from 'reactstrap';
 import Link from 'next/link';
+import Logo from '../../public/img/logo-white.svg';
 import Image from 'next/image';
 import { useAppContext } from '../appContext';
 import Cookie from "js-cookie";
@@ -22,7 +23,7 @@ function Navigation() {
         <NavItem>
           <Link href="/" className="navbar-brand">
             <Image
-              src="img/logo-white.svg"
+              src={Logo}
               width={50}
               height={50}
               alt="Restaurant App Logo"
