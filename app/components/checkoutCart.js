@@ -1,4 +1,4 @@
-import { useAppContext } from "../context/appContext";
+import { useAppContext } from "../appContext";
 
 function CartItem({ data }) {
   const { addItem, removeItem } = useAppContext();

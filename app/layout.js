@@ -1,5 +1,5 @@
 'use client';
-import { AppContextProvider } from './context/appContext';
+import { AppContextProvider } from './appContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import { Inter } from 'next/font/google';

@@ -1,4 +1,4 @@
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../appContext';
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'

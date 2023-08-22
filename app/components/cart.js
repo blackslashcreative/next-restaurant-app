@@ -1,4 +1,4 @@
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../appContext';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import Link from 'next/link';
 import Image from 'next/image';

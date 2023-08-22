@@ -1,7 +1,14 @@
+/*********************************************************
+ IMPORTS
+*********************************************************/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+/*********************************************************
+ LAYOUT
+*********************************************************/
 :root {
   @apply bg-white
 }
@@ -20,6 +27,10 @@ main {
   @apply container lg:max-w-screen-lg mx-auto px-8 py-8
 }
 
+
+/*********************************************************
+ ELEMENTS
+*********************************************************/
 h1 {
   @apply text-5xl font-medium mb-4
 }
@@ -56,6 +67,10 @@ button {
   @apply bg-purple-950 hover:bg-purple-900 text-white py-2 px-4 !rounded
 }
 
+
+/*********************************************************
+ NAVIGATION
+*********************************************************/
 .navbar .container {
   @apply px-0
 }
@@ -72,6 +87,35 @@ button {
 a:hover, .nav-link:hover {
   @apply !text-purple-600
 }
+
+
+/*********************************************************
+ FORMS
+*********************************************************/
+.paper.form {
+  @apply max-w-sm mx-auto mt-0;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+.form .header {
+  @apply flex mb-4
+}
+
+.form .header img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+}
+
+.form .header h1 {
+  @apply mb-2 text-4xl;
+  padding-top: 70px;
+}
+
 
 /*********************************************************
  CART

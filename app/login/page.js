@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../appContext';
 import { useRouter } from 'next/navigation';
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import { login } from "../utils/auth";
@@ -27,15 +27,16 @@ export default function Login() {
 
   return (
     <main>
-      <h1>Login</h1>
-      <div className="paper">
+      <div className="paper form">
         <div className="header">
           <Image
             src="img/logo.svg"
+            className="form-logo"
             width={100}
             height={100}
             alt="Restaurant App Logo"
           />
+          <h1>Login</h1>
         </div>
         <section className="wrapper">
           {Object.entries(error).length !== 0 &&

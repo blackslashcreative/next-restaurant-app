@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from "react";
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../appContext';
 import { registerUser } from "../utils/auth";
 import { useRouter } from 'next/navigation';
 import { Form, FormGroup, Input } from 'reactstrap';    
@@ -23,8 +23,7 @@ export default function Register() {
 
   return (
     <main>
-      <h1>Register</h1>
-      <div className="paper">
+      <div className="paper form">
         <div className="header">
           <Image
             src="img/logo.svg"
@@ -32,6 +31,7 @@ export default function Register() {
             height={100}
             alt="Restaurant App Logo"
           />
+          <h1>Register</h1>
         </div>
         <section className="wrapper">
           {Object.entries(error).length !== 0 &&

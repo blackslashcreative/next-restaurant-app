@@ -1,7 +1,7 @@
 'use client';
 import { Container, Nav, NavItem } from 'reactstrap';
 import Link from 'next/link';
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../appContext';
 import Cookie from "js-cookie";
 
 

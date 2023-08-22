@@ -3,7 +3,7 @@ import Cookie from "js-cookie";
 import client from '../client';
 import { gql } from "@apollo/client";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { useAppContext } from "../context/appContext";
+import { useAppContext } from "../appContext";
 import { useRouter } from "next/navigation";
 import { useInitialRender } from "../utils/useInitialRender";
 
@@ -46,6 +46,12 @@ export default function CheckoutForm() {
     const updateItem = (data[e.target.name] = e.target.value);
     setData({ ...data, updateItem });
   }
+
+  const loginRedirect = (e) => {
+    e.preventDefault();
+    router.push("/login");
+  }
+
 
   async function submitOrder(e) {
     e.preventDefault();
@@ -199,10 +205,10 @@ export default function CheckoutForm() {
             </div>
             <button
               className="inline-block w-full px-6 py-3 text-center font-bold text-white bg-green-500 hover:bg-green-600 transition duration-200 rounded-full"
-              onClick={(e) => (user ? submitOrder(e) : router.push("/login"))}
+              onClick={(e) => (user ? submitOrder(e) : loginRedirect(e))}
               disabled={loading}
             >
-              {loading ? "Submitting" : "Submit Order"}
+              {loading ? "Submitting..." : "Submit Order"}
             </button>
           </div>
         ) : (
