@@ -1,13 +1,8 @@
-import Head from 'next/head';
-import styles from './restaurants.module.css';
-import Layout from '../layout.js';
+'use client';
+import { useRouter } from 'next/navigation';
 
-export default function Home() {
-  return (
-    <Layout>
-      <main>
-        <h1>Restaurants Page</h1>
-      </main>
-    </Layout>
-  )
+export default function Restaurants() {
+  // redirect to home page
+  const router = useRouter();
+  router.push("/");
 }

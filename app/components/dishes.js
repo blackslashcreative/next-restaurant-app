@@ -45,14 +45,14 @@ function Dishes({restId}) {
       }
     }
   }`;
-  console.log(`restaurant = ${restaurantID}`);
+  // console.log(`restaurant = ${restaurantID}`);
   const router = useRouter();
 
   const { loading, error, data } = useQuery(GET_RESTAURANT_DISHES, {
     variables: { id: restId },
   });
-  console.log("Data...");
-  console.log(data);
+  //console.log("Data...");
+  //console.log(data);
   if (loading) return <p>Loading...</p>;
   if (error) {
     console.log(error); 
@@ -61,12 +61,12 @@ function Dishes({restId}) {
   if (!data)   return <p>Nothing found...</p>;
 
   let restaurant = data.restaurant.data;
-  console.log(`restId: ${restId}`);
+  // console.log(`restId: ${restId}`);
   if (restId > 0) {
     return (
       <>
       {restaurant.attributes.Dishes.data.map((res) => (
-        <Col xs="6" sm="4" key={res.id}>
+        <Col md="3" key={res.id}>
           <Card>
             <CardImg
               top={true}

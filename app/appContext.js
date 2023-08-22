@@ -7,6 +7,7 @@ const AppContext = createContext({});
  
 export const AppContextProvider = ({ children }) => {
   
+  const [restaurantID, setRestaurantID] = useState(null);
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -124,7 +125,16 @@ export const AppContextProvider = ({ children }) => {
   }
   
   return (
-    <AppContext.Provider value={{ user, setUser, cart: cartState.cart, addItem: addItem, removeItem: removeItem, setCartState, resetCart }}>
+    <AppContext.Provider value={{ 
+      user, setUser, 
+      cart: cartState.cart, 
+      addItem: addItem, 
+      removeItem: removeItem, 
+      setCartState, 
+      resetCart, 
+      restaurantID, 
+      setRestaurantID 
+    }}>
       {children}
     </AppContext.Provider>
   )

@@ -1,6 +1,5 @@
 'use client'
 import RestaurantList from './components/restaurantlist';
-import Cart from './components/cart';
 import { useState } from 'react';
 import { InputGroup, Input } from 'reactstrap';
 
@@ -22,7 +21,6 @@ function Home() {
         </InputGroup> 
       </div>
       <RestaurantList search={query} />
-      <Cart/>
     </main>
   )
 }

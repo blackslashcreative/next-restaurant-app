@@ -124,6 +124,10 @@ a:hover, .nav-link:hover {
   @apply mt-12
 }
 
+#cart .card-title {
+  @apply bg-purple-950 font-medium text-lg text-white mb-0 pb-2
+}
+
 #cart .card hr {
   @apply mb-0 mt-0
 }

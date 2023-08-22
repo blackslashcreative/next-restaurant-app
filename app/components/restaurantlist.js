@@ -1,11 +1,8 @@
 import { useQuery, gql } from '@apollo/client';
 import Link from 'next/link';
-import Dishes from './dishes';
-import { useState } from 'react';
 import { Card, CardBody, CardImg, CardText, Container, Row, Col } from 'reactstrap';
 
 function RestaurantList(props) {
-  const [restaurantID, setRestaurantID] = useState(0);
 
   const GET_RESTAURANTS = gql`
   {
@@ -35,17 +32,15 @@ function RestaurantList(props) {
   const searchQuery = data.restaurants.data.filter((res) => 
    res.attributes.Name.toLowerCase().includes(props.search)
   );
+
+  const handleNavigation = () => {
+    setRestaurantID(99);
+  }
   
   console.log(`searchQuery: ${searchQuery}`);
   if(searchQuery.length > 0){
     // set ID for first restaurant
     let restId = searchQuery[0].id;
-    // define renderer for dishes
-    const renderDishes = (restaurant_id) => {
-      return (
-        <Dishes restId={restaurant_id}/>
-      )
-    };
 
     const restList = searchQuery.map((res) => (
       <Col xs="6" sm="4" key={res.id}>
@@ -56,18 +51,15 @@ function RestaurantList(props) {
             src={`http://localhost:1337` + res.attributes.Image.data.attributes.url}
           />
           <CardBody>
-            <h4>{res.attributes.Name}</h4>
+            <Link 
+              key={res.attributes.Name} 
+              href="restaurants/[id]"
+              as={`restaurants/${res.id}`}
+            >
+              <h4>{res.attributes.Name}</h4>
+            </Link>
             <CardText>{res.attributes.Description}</CardText>
           </CardBody>
-          {/*
-          <div className="card-footer">
-            <Link key={res.attributes.Name} as={"/restaurants/"+res.attributes.Name} href="restaurants/[restaurant]">
-              <button onClick={()=>setRestaurantID(res.id)}>
-                {res.attributes.Name}
-              </button>
-            </Link>
-          </div>
-          */}
         </Card>
       </Col>
     ))
@@ -76,7 +68,6 @@ function RestaurantList(props) {
         <Row>
           {restList}
         </Row>
-        { props.search && <Row>{renderDishes(restId)}</Row> }
       </Container>
     )
   }
