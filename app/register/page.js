@@ -4,7 +4,6 @@ import { useAppContext } from '../appContext';
 import { registerUser } from "../utils/auth";
 import { useRouter } from 'next/navigation';
 import { Form, FormGroup, Input } from 'reactstrap';    
-import Image from 'next/image';
 
 export default function Register() {
   const [data, setData] = useState({ email:"", username:"", password:"" });
@@ -25,12 +24,6 @@ export default function Register() {
     <main>
       <div className="paper form">
         <div className="header">
-          <Image
-            src="img/logo.svg"
-            width={100}
-            height={100}
-            alt="Restaurant App Logo"
-          />
           <h1>Register</h1>
         </div>
         <section className="wrapper">

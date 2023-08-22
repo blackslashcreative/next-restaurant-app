@@ -1,6 +1,7 @@
 'use client';
 import { Container, Nav, NavItem } from 'reactstrap';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useAppContext } from '../appContext';
 import Cookie from "js-cookie";
 
@@ -20,7 +21,13 @@ function Navigation() {
       <Container>
         <NavItem>
           <Link href="/" className="navbar-brand">
-            Home
+            <Image
+              src="img/logo-white.svg"
+              className="form-logo"
+              width={54}
+              height={54}
+              alt="Restaurant App Logo"
+            />
           </Link>
         </NavItem>
         <NavItem className="ml-auto">

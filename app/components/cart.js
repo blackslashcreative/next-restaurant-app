@@ -1,3 +1,4 @@
+import { FaOpencart } from "react-icons/fa";
 import { useAppContext } from '../appContext';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import Link from 'next/link';
@@ -12,7 +13,7 @@ function Cart() {
     let {items} = cart;
     console.log(`items: ${JSON.stringify(items)}`);
     
-    if(!items || !items.length) return <p>Your cart is empty. Add some dishes!</p>
+    if(!items || !items.length) return <p className="empty-cart"><FaOpencart size={40}/><br/>Your cart is empty!</p>
 
     let itemList = items.map((item => {
       if(item.quantity > 0) {

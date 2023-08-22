@@ -8,10 +8,10 @@ function Home() {
   return (
     <main>
       <div className="search">
-        <h1>Search Restaurants</h1>
+        <h1>Hungry?</h1>
         <InputGroup>
           <Input
-            placeholder="Type to search"
+            placeholder="Type to search for local restaurants..."
             type="text"
             value={query}
             onChange={(e) =>

@@ -76,7 +76,7 @@ button {
 }
 
 .navbar-brand {
-  @apply !text-white
+  @apply !text-white block
 }
 
 .navbar li, 
@@ -112,8 +112,7 @@ a:hover, .nav-link:hover {
 }
 
 .form .header h1 {
-  @apply mb-2 text-4xl;
-  padding-top: 70px;
+  @apply mb-2 text-4xl pt-4
 }
 
 
@@ -135,6 +134,14 @@ a:hover, .nav-link:hover {
 #cart .card-title {
   padding-top: 7px;
   padding-left: 1rem;
+}
+
+.empty-cart {
+  @apply text-gray-600 text-center mt-4 mb-8
+}
+
+.empty-cart svg {
+  @apply mx-auto
 }
 
 .cart-item {
@@ -165,4 +172,12 @@ a:hover, .nav-link:hover {
 
 .checkout-cart.bs-bg-dark {
   @apply !bg-violet-950
+}
+
+
+/*********************************************************
+ ELEMENT: CARD LISTS
+*********************************************************/
+.card-body h2 {
+  @apply mt-0 mb-1 text-xl
 }

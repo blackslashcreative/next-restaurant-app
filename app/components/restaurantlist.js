@@ -56,7 +56,7 @@ function RestaurantList(props) {
               href="restaurants/[id]"
               as={`restaurants/${res.id}`}
             >
-              <h4>{res.attributes.Name}</h4>
+              <h2>{res.attributes.Name}</h2>
             </Link>
             <CardText>{res.attributes.Description}</CardText>
           </CardBody>
