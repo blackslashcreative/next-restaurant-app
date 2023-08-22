@@ -12,29 +12,35 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Dishes": {
+    "dishes": {
       "type": "json",
       "required": true
     },
-    "Amount": {
-      "type": "biginteger",
+    "amount": {
+      "type": "integer",
       "required": true
     },
-    "Address": {
+    "address": {
       "type": "string",
       "required": true
     },
-    "City": {
+    "city": {
       "type": "string",
       "required": true
     },
-    "State": {
+    "state": {
       "type": "string",
       "required": true
     },
-    "Token": {
+    "token": {
       "type": "string",
       "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
     }
   }
 }

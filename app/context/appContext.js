@@ -46,6 +46,10 @@ export const AppContextProvider = ({ children }) => {
     return data.me;
   };
 
+  const resetCart = () => {
+    setCartState({ cart: {items: [], total: 0 }});
+  };
+
   const addItem = (item) => {
     let { items } = cartState.cart;
     // console.log(`Items: ${items}`);
@@ -120,7 +124,7 @@ export const AppContextProvider = ({ children }) => {
   }
   
   return (
-    <AppContext.Provider value={{ user, setUser, cart: cartState.cart, addItem: addItem, removeItem: removeItem, setCartState }}>
+    <AppContext.Provider value={{ user, setUser, cart: cartState.cart, addItem: addItem, removeItem: removeItem, setCartState, resetCart }}>
       {children}
     </AppContext.Provider>
   )

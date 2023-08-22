@@ -1,10 +1,9 @@
 'use client'
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { useInitialRender } from "../utils/useInitialRender";
+//import { useInitialRender } from "../utils/useInitialRender";
 import CheckoutForm from '../components/checkoutForm';
 import CheckoutCart from '../components/checkoutCart';
-//import Layout from '../layout.js';
 
 export default function Checkout() {
   const stripePromise = loadStripe("pk_test_FO8HbyXvpirdE8owXllx89ti");

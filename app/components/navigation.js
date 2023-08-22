@@ -12,11 +12,7 @@ function Navigation() {
   function handleLogout() {
     setUser(null);
     Cookie.remove("token");
-    const cart = {
-      items: [],
-      total: 0,
-    };
-    setCartState({cart:cart});
+    resetCart();
   }
   
   return (
