@@ -13,6 +13,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const { error, setError } = useAppContext();
   const { user, setUser } = useAppContext();
+  const { setSuccessMessage } = useAppContext();
 
   console.log(`error: ${JSON.stringify(error)}`);
 
@@ -77,6 +78,7 @@ export default function Register() {
                     registerUser(data.username, data.email, data.password)
                       .then ((res) => {
                         // set authed user in global context object
+                        setSuccessMessage('Your account has been created!');
                         setUser(res.data.user);
                         setLoading(false);
                       })

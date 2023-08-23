@@ -166,6 +166,10 @@ a:hover, .nav-link:hover {
   @apply mt-4 text-gray-600 text-sm
 }
 
+.form-footer-alert.success {
+  @apply text-green-700 mb-4 mt-8
+}
+
 .form-footer-alert.errors {
   @apply text-red-700
 }

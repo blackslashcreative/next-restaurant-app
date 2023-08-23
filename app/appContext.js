@@ -10,6 +10,7 @@ export const AppContextProvider = ({ children }) => {
   const [restaurantID, setRestaurantID] = useState(null);
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
   
   const cart = {
@@ -127,7 +128,8 @@ export const AppContextProvider = ({ children }) => {
       resetCart, 
       restaurantID, setRestaurantID, 
       orderConfirmed, setOrderConfirmed,
-      error, setError
+      error, setError, 
+      successMessage, setSuccessMessage
     }}>
       {children}
     </AppContext.Provider>
