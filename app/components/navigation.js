@@ -35,7 +35,7 @@ function Navigation() {
         </NavItem>
         <NavItem className="ml-auto">
           {user ? (
-            <span className="text-green-400">Hi, {user.username}!</span>
+            <span className="navbar-welcome-text text-green-400">Hi, {user.username}!</span>
           ) : (
             <Link href="/register" className="nav-link">
               Sign Up

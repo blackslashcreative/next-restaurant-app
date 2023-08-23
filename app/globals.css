@@ -110,6 +110,10 @@ a:hover, .nav-link:hover {
   @apply !text-purple-600
 }
 
+.navbar-welcome-text {
+  @apply capitalize
+}
+
 
 /*********************************************************
  FORMS
