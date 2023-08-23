@@ -166,6 +166,26 @@ a:hover, .nav-link:hover {
   @apply mt-4 text-gray-600 text-sm
 }
 
+.form-footer-alert.errors {
+  @apply text-red-700
+}
+
+.form-footer-alert.errors svg {
+  @apply inline-block mr-2
+}
+
+.errors-wrapper {
+  @apply mb-4
+}
+
+div.error {
+  @apply text-xs text-red-700 mr-2 inline-block mb-0
+}
+
+.errors div:first-letter {
+  text-transform: uppercase;
+}
+
 
 /*********************************************************
  CART

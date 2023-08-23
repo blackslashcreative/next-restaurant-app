@@ -57,9 +57,6 @@ export const AppContextProvider = ({ children }) => {
 
   const addItem = (item) => {
     let { items } = cartState.cart;
-    // console.log(`Items: ${items}`);
-    // console.log(`Items: ${JSON.stringify(items)}`);
-    // console.log(`This item: ${JSON.stringify(item)}`);
     // check if item already in cart, or add it
     let foundItem = true;
     if(items.length > 0) {
@@ -69,21 +66,16 @@ export const AppContextProvider = ({ children }) => {
     else {
       foundItem = false;
     }
-    // console.log(`Found item in cart? ${JSON.stringify(foundItem)}`);
     // if item is not new, add to cart, set quantity to 1 
     if (!foundItem) {
       // set quantity to 1
       let temp = JSON.parse(JSON.stringify(item));
       temp.quantity = 1;
-      // console.log(`temp = ${JSON.stringify(temp)}`);
       let newCart = {
         items: [...cartState.cart.items,temp],
         total: Number(cartState.cart.total + item.attributes.Price),
       }
-      // console.log(`newCart: ${JSON.stringify(newCart)}`);
       setCartState({ cart : newCart });
-      // console.log(`cartState so far: ${JSON.stringify(cartState)}`);
-      //console.log(`Total so far: ${cartState.cart.total}`);
     } else {
       // we already have it so just increase quantity ++
       console.log(`Total before adding:  ${cartState.cart.total}`)
@@ -98,8 +90,6 @@ export const AppContextProvider = ({ children }) => {
       }
       setCartState({ cart : newCart });
     }
-    //setCartState({cart: newCart}); // problem is this is not updated yet
-    // console.log(`cartState reset to cart: ${JSON.stringify(cartState)}`);
   };
 
   const removeItem = (item) => {
@@ -117,7 +107,6 @@ export const AppContextProvider = ({ children }) => {
         }}),
         total: cartState.cart.total - item.attributes.Price,
       }
-      // console.log(`NewCart after remove: ${JSON.stringify(newCart)}`);
     } else {
       // only 1 in the cart so remove the item entirely from cart
       console.log(`Trying to remove item... ${JSON.stringify(foundItem)}`);
@@ -137,7 +126,8 @@ export const AppContextProvider = ({ children }) => {
       setCartState, 
       resetCart, 
       restaurantID, setRestaurantID, 
-      orderConfirmed, setOrderConfirmed
+      orderConfirmed, setOrderConfirmed,
+      error, setError
     }}>
       {children}
     </AppContext.Provider>

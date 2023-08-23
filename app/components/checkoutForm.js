@@ -31,7 +31,7 @@ const INITIAL_STATE = {
 export default function CheckoutForm() {
   const [data, setData] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
-  const { user, cart, resetCart } = useAppContext();
+  const { user, cart, resetCart, setError } = useAppContext();
 
   const initialRender = useInitialRender();
 
@@ -48,6 +48,7 @@ export default function CheckoutForm() {
 
   const registerRedirect = (e) => {
     e.preventDefault();
+    setError(null);
     router.push("/register");
   }
 

@@ -6,12 +6,15 @@ import { useRouter } from 'next/navigation';
 import { Form, FormGroup, Input } from 'reactstrap';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 export default function Register() {
   const [data, setData] = useState({ email:"", username:"", password:"" });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState({});
+  const { error, setError } = useAppContext();
   const { user, setUser } = useAppContext();
+
+  console.log(`error: ${JSON.stringify(error)}`);
 
   const router = useRouter();
   useEffect(() => {
@@ -36,18 +39,6 @@ export default function Register() {
             <h1>Register</h1>
           </div>
           <section className="wrapper">
-            {Object.entries(error).length !== 0 &&
-              error.constructor === Object &&
-              error.message.map((error) => {
-                return (
-                  <div key={error.messages[0].id}>
-                    <small className="text-danger">
-                      {error.messages[0].message}
-                    </small>
-                  </div>
-                );
-              })
-            }
             <Form>
               <fieldset disabled={loading}>
                 <FormGroup>
@@ -101,7 +92,19 @@ export default function Register() {
             </Form> 
           </section>
         </div>
-        <p className="form-footer-alert">Already have an account? <Link href={loginRedirectLink}>Log in</Link></p>
+        <div className="form-footer-alert errors">
+          {error && (
+            <div className="errors-wrapper">
+              <AiOutlineExclamationCircle size={20}/>
+              <div
+                className="error"
+              >
+                Uh oh! Something looks wrong. Please try again.
+              </div>
+            </div>
+          )}
+          Already have an account? <Link href={loginRedirectLink}>Log in</Link>
+        </div>
       </div>
     </main>
   );

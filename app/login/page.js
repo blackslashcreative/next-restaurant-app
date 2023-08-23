@@ -5,10 +5,10 @@ import { useRouter } from 'next/navigation';
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import { login } from "../utils/auth";
 import { useSearchParams } from 'next/navigation';
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 export default function Login() {
   const { user, setUser } = useAppContext();
-  console.log(`Current user: ${JSON.stringify(user)}`);
 
   const [data, updateData] = useState({ identifier: "", password: "" });
   const [loading, setLoading] = useState(false);
@@ -41,17 +41,6 @@ export default function Login() {
             <h1>Login</h1>
           </div>
           <section className="wrapper">
-            {Object.entries(error).length !== 0 &&
-              error.constructor === Object &&
-              error.message.map((error) => {
-                return (
-                  <div key={error.messages[0].id}>
-                    <small className="text-danger">
-                      {error.messages[0].message}
-                    </small>
-                  </div>
-                );
-              })}
             <Form>
               <fieldset disabled={loading}>
                 <FormGroup>
@@ -95,6 +84,21 @@ export default function Login() {
               </fieldset>
             </Form>
           </section>
+        </div>
+        <div className="form-footer-alert errors">
+          {error && <AiOutlineExclamationCircle size={20}/>}
+          {error && (
+            error.error.details.errors.map((error) => {
+              return (
+                <div
+                  className="error"
+                  key={error.message}
+                >
+                  {error.message + "."}
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </main>
