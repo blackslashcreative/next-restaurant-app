@@ -10,7 +10,8 @@ export const AppContextProvider = ({ children }) => {
   const [restaurantID, setRestaurantID] = useState(null);
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [orderConfirmed, setOrderConfirmed] = useState(false);
+  
   const cart = {
     items: [],
     total: 0,
@@ -48,6 +49,8 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const resetCart = () => {
+    setOrderConfirmed(true);
+    console.log(`orderConfirmed in resetCart context: ${orderConfirmed}`);
     setCartState({ cart: {items: [], total: 0 }});
   };
 
@@ -132,8 +135,8 @@ export const AppContextProvider = ({ children }) => {
       removeItem: removeItem, 
       setCartState, 
       resetCart, 
-      restaurantID, 
-      setRestaurantID 
+      restaurantID, setRestaurantID, 
+      orderConfirmed, setOrderConfirmed
     }}>
       {children}
     </AppContext.Provider>

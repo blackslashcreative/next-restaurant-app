@@ -33,7 +33,6 @@ export default function CheckoutForm() {
   const [data, setData] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
   const { user, cart, resetCart } = useAppContext();
-  const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   const initialRender = useInitialRender();
 

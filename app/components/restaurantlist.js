@@ -24,7 +24,7 @@ function RestaurantList(props) {
     }
   }`;
   const { loading, error, data } = useQuery(GET_RESTAURANTS); // DONE?
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="loading">Loading...</p>;
   if (error)   return <p>ERROR</p>;
   if (!data)   return <p>Nothing found...</p>;
   //console.log(data.restaurants.data);

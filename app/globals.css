@@ -190,7 +190,8 @@ a:hover, .nav-link:hover {
   @apply text-gray-600 text-center mt-4 mb-8
 }
 
-.empty-cart svg {
+.empty-cart svg, 
+.order-confirmation svg {
   @apply mx-auto
 }
 
@@ -244,6 +245,10 @@ a:hover, .nav-link:hover {
   margin-left: auto;
 }
 
+.order-confirmed {
+  @apply text-center text-xl
+}
+
 
 /*********************************************************
  ELEMENT: CARD LISTS
@@ -270,4 +275,12 @@ a.restaurant-link {
 
 a.restaurant-link:hover {
   @apply !text-purple-950
+}
+
+
+/*********************************************************
+ LOADING
+*********************************************************/
+.loading {
+  @apply mt-8
 }

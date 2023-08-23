@@ -6,7 +6,7 @@ import { FaOpencart } from "react-icons/fa";
 import { usePathname } from 'next/navigation';;
 
 function Cart() {
-  let isAuthenticated = true; // ???
+  let isAuthenticated = true; // TODO: ???
   const { user, cart, addItem, removeItem } = useAppContext();
 
   const pathname = usePathname();
