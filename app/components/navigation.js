@@ -1,6 +1,7 @@
 'use client';
 import { Container, Nav, NavItem } from 'reactstrap';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Logo from '../../public/img/logo-white.svg';
 import Image from 'next/image';
 import { useAppContext } from '../appContext';
@@ -9,12 +10,14 @@ import Cookie from "js-cookie";
 
 function Navigation() {
   const { user, setUser } = useAppContext();
-  const { setCartState } = useAppContext();
+  const { resetCart } = useAppContext();
 
+  const router = useRouter();
   function handleLogout() {
     setUser(null);
     Cookie.remove("token");
-    resetCart();
+    resetCart(true);
+    router.push("/");
   }
   
   return (
@@ -42,7 +45,7 @@ function Navigation() {
         <NavItem>
           {user ? (
             <Link
-              href="/"
+              href=""
               className="nav-link"
               onClick={handleLogout}
             >

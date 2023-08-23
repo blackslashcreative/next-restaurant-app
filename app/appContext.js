@@ -48,9 +48,10 @@ export const AppContextProvider = ({ children }) => {
     return data.me;
   };
 
-  const resetCart = () => {
-    setOrderConfirmed(true);
-    console.log(`orderConfirmed in resetCart context: ${orderConfirmed}`);
+  const resetCart = (logout) => {
+    if (!logout) {
+      setOrderConfirmed(true);
+    }
     setCartState({ cart: {items: [], total: 0 }});
   };
 
