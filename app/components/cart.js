@@ -22,17 +22,15 @@ function Cart() {
             className="cart-item"
             key={item.id}
           >
-            <span className="cart-image">
+            <div className="cart-image">
               <img 
                 src={`http://localhost:1337${item.attributes.Image.data.attributes.url}`} 
                 alt={`Picture of ${item.attributes.Name}`}
               />
-            </span>
-            <span id="item-name">&nbsp; {item.attributes.Name}</span>
-            <span id="item-price">&nbsp; ${item.attributes.Price}</span>
+            </div>
+            <div className="item-name">{item.attributes.Name}<br/>x{item.quantity}<span className="item-price">${item.attributes.Price}</span></div>
             <div className="update-quantity">
               <button onClick={() => removeItem(item)}>-</button>
-              <span id="item-quantity">&nbsp;&nbsp; x{item.quantity}&nbsp;</span>
               <button onClick={() => addItem(item)}>+</button>
             </div>
           </div>

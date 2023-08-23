@@ -21,7 +21,7 @@ export default function Register() {
   if (loading) return <Loader />;
 
   return (
-    <main>
+    <main className="form-page">
       <div className="paper form">
         <div className="header">
           <h1>Register</h1>
