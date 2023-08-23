@@ -73,6 +73,9 @@ export default function Login() {
                           router.push(loginRedirectLink);
                         })
                         .catch((error) => {
+                          if (error.response.data.error.message === 'Invalid identifier or password') {
+                            error.response.data.error.details = {"errors":[{"message":"Please check your password and try again"}]};
+                          }
                           setError(error.response.data);
                           setLoading(false);
                         });
@@ -88,13 +91,14 @@ export default function Login() {
         <div className="form-footer-alert errors">
           {error && <AiOutlineExclamationCircle size={20}/>}
           {error && (
-            error.error.details.errors.map((error) => {
+            // Below handles everything EXCEPT *wrong* password
+            error.error.details.errors.map((err) => {
               return (
                 <div
                   className="error"
                   key={error.message}
                 >
-                  {error.message + "."}
+                  {err.message + "."}
                 </div>
               );
             })
