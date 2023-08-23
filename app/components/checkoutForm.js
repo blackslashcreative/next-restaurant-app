@@ -58,17 +58,17 @@ export default function CheckoutForm() {
     const token = await stripe.createToken(cardElement);
 
     if (data.address === "") {
-      setData({ ...data, error: { message: "Address is required" } });
+      setData({ ...data, error: { message: "Address is required." } });
       return;
     }
 
     if (data.city === "") {
-      setData({ ...data, error: { message: "City is required" } });
+      setData({ ...data, error: { message: "City is required." } });
       return;
     }
 
     if (data.state === "") {
-      setData({ ...data, error: { message: "State is required" } });
+      setData({ ...data, error: { message: "State is required." } });
       return;
     }
 
@@ -219,7 +219,7 @@ export default function CheckoutForm() {
         )}
         <div>
           {data.error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+            <div className="text-red-700 px-4 py-3 mt-2 rounded relative">
               <strong className="font-bold">Error!</strong>{" "}
               <span className="block sm:inline">{data.error.message}</span>
             </div>
