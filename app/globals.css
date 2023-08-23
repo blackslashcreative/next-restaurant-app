@@ -130,10 +130,15 @@ a:hover, .nav-link:hover {
   margin-top: -20px;
 }
 
+.paper-shadow, 
 .paper.form-wrapper .form {
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 1rem 2rem 2rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.10) 1px 1px 6px;
+  padding: 2rem;
+}
+
+.paper.form-wrapper .form {
+  padding-top: 1rem;
 }
 
 .form .header {

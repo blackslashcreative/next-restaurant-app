@@ -10,7 +10,6 @@ import { useInitialRender } from "../utils/useInitialRender";
 const options = {
   style: {
     base: {
-      fontSize: "32px",
       color: "#52a635",
       "::placeholder": {
         color: "#aab7c4",
@@ -141,8 +140,8 @@ export default function CheckoutForm() {
 
   return (
     <form>
-      <div className="bg-white shadow-md rounded-lg p-8">
-        <h5 className="text-lg font-semibold">Your information:</h5>
+      <div className="bg-white paper-shadow rounded-lg p-8">
+        <h5 className="text-2xl font-medium">Deliver to:</h5>
         <hr className="my-4" />
         <div className="flex mb-6">
           <div className="flex-1">
@@ -155,7 +154,7 @@ export default function CheckoutForm() {
             <input
               id="address"
               htmlFor="address"
-              className="appearance-none block w-full p-3 leading-5 text-gray-900 border border-gray-200 rounded-lg shadow-md placeholder-text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              className="appearance-none block w-full p-3 leading-5 text-gray-900 border border-gray-200 rounded-lg placeholder-text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
               type="text"
               name="address"
               onChange={onChange}
@@ -176,7 +175,7 @@ export default function CheckoutForm() {
               name="city"
               id="city"
               onChange={onChange}
-              className="appearance-none block w-full p-3 leading-5 text-gray-900 border border-gray-200 rounded-lg shadow-md placeholder-text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              className="appearance-none block w-full p-3 leading-5 text-gray-900 border border-gray-200 rounded-lg placeholder-text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
             />
           </div>
 
@@ -192,12 +191,12 @@ export default function CheckoutForm() {
               name="state"
               id="state"
               onChange={onChange}
-              className="appearance-none block w-full p-3 leading-5 text-gray-900 border border-gray-200 rounded-lg shadow-md placeholder-text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              className="appearance-none block w-full p-3 leading-5 text-gray-900 border border-gray-200 rounded-lg placeholder-text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
             />
           </div>
         </div>
         {cart.items.length > 0 ? (
-          <div className="p-6">
+          <div>
             <div>Credit or debit card</div>
             <div className="my-4">
               <CardElement options={options} />

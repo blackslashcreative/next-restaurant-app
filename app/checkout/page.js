@@ -16,23 +16,27 @@ export default function Checkout() {
 
   return (
     <main>
-      <section className="container mx-auto py-24">
+      <section className="container mx-auto">
         {orderConfirmed ? (
           <div class="order-confirmation">
             <TbTruckDelivery size={40}/><br/>
             <h4 className="order-confirmed">Your order has been placed!</h4>
           </div>
         ) : (
-          <div className="grid grid-cols-5 gap-4">
-          <div className="col-span-2">
-            <CheckoutCart />
+          <div className="row">
+            <h1>Checkout</h1>
+            <div className="grid grid-cols-5 gap-4">
+              <div className="col-span-2">
+                <CheckoutCart />
+              </div>
+              <div className="col-span-3">
+              <Elements stripe={stripePromise}>
+                <CheckoutForm />
+              </Elements>
+              </div>
+            </div>
           </div>
-          <div className="col-span-3">
-          <Elements stripe={stripePromise}>
-            <CheckoutForm />
-          </Elements>
-          </div>
-        </div>)
+        )
         }
       </section>
     </main>
