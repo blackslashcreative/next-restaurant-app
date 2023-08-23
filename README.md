@@ -1,4 +1,4 @@
-<img src="https://blacksla.sh/github/img/nybble.svg" alt="BlackSlash Creative Logo" width="400" />
+<img src="https://blacksla.sh/github/img/nybble.png" alt="BlackSlash Creative Logo" width="400" />
 
 # Nybble App
 A full stack restaurant delivery service application on the MERN stack.
