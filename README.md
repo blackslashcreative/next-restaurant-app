@@ -1,10 +1,10 @@
-<img src="https://blacksla.sh/github/img/nybble.png" alt="BlackSlash Creative Logo" width="400" />
+<img src="https://blacksla.sh/github/img/blackslash-logo.svg" alt="BlackSlash Creative Logo" width="300" />
 
 # Nybble App
 A full stack restaurant delivery service application on the MERN stack.
 
 ## Screenshots
-<img src="https://blacksla.sh/github/img/badbank-screenshot.png" alt="BadBank App Screenshot" width="700" />
+<img src="https://blacksla.sh/github/img/nybble.png" alt="Nybble App Screenshot" width="700" />
 
 ## Technology
 MongoDB // React // Next.js // Node // GraphQL // Strapi // Stripe
