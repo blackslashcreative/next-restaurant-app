@@ -33,6 +33,7 @@ export default function CheckoutForm() {
   const [data, setData] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
   const { user, cart, resetCart } = useAppContext();
+  const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   const initialRender = useInitialRender();
 
@@ -47,9 +48,9 @@ export default function CheckoutForm() {
     setData({ ...data, updateItem });
   }
 
-  const loginRedirect = (e) => {
+  const registerRedirect = (e) => {
     e.preventDefault();
-    router.push("/login");
+    router.push("/register");
   }
 
 
@@ -131,7 +132,6 @@ export default function CheckoutForm() {
         //alert("Transaction Successful, continue your shopping");
         setData(INITIAL_STATE);
         resetCart();
-        router.push("/");
       }
     } catch (error) {
       setData({ ...data, error: { message: error.message } });
@@ -205,7 +205,7 @@ export default function CheckoutForm() {
             </div>
             <button
               className="inline-block w-full px-6 py-3 text-center font-bold text-white bg-green-500 hover:bg-green-600 transition duration-200 rounded-full"
-              onClick={(e) => (user ? submitOrder(e) : loginRedirect(e))}
+              onClick={(e) => (user ? submitOrder(e) : registerRedirect(e))}
               disabled={loading}
             >
               {loading ? "Submitting..." : "Submit Order"}

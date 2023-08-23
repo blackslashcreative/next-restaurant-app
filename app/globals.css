@@ -35,7 +35,7 @@ main {
 
 
 /*********************************************************
- ELEMENTS
+ APP STYLES
 *********************************************************/
 h1 {
   @apply text-5xl font-medium mb-4
@@ -77,6 +77,14 @@ button {
   @apply bg-purple-950 hover:bg-purple-900 text-white py-2 px-4 !rounded
 }
 
+a {
+  @apply text-purple-950
+}
+
+p > a {
+  @apply underline
+}
+
 
 /*********************************************************
  NAVIGATION
@@ -112,17 +120,20 @@ a:hover, .nav-link:hover {
   position: relative;
 }
 
-.paper.form {
+.paper.form-wrapper {
   @apply max-w-sm mx-auto mt-0;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 1rem 2rem 2rem 2rem;
   position: absolute;
   width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: -40px;
+  margin-top: -20px;
+}
+
+.paper.form-wrapper .form {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 1rem 2rem 2rem 2rem;
 }
 
 .form .header {
@@ -144,6 +155,10 @@ a:hover, .nav-link:hover {
 .form-control:focus {
   @apply border-purple-100;
   box-shadow: 0 0 0 0.25rem rgba(95, 12, 211, 0.2);
+}
+
+.form-footer-alert {
+  @apply mt-4 text-gray-600 text-sm
 }
 
 
@@ -247,4 +262,12 @@ a:hover, .nav-link:hover {
 
 .card-body h2 {
   @apply mt-0 mb-1 text-xl
+}
+
+a.restaurant-link {
+  @apply !text-black
+}
+
+a.restaurant-link:hover {
+  @apply !text-purple-950
 }

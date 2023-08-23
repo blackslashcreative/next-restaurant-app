@@ -52,6 +52,7 @@ function RestaurantList(props) {
           />
           <CardBody>
             <Link 
+              className="restaurant-link"
               key={res.attributes.Name} 
               href="restaurants/[id]"
               as={`restaurants/${res.id}`}

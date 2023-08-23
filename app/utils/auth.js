@@ -45,8 +45,6 @@ export const login = (identifier, password) => {
 
         //resolve the promise to set loading to false in SignUp form
         resolve(res);
-        //redirect back to home page for restaurance selection
-        Router.push("/");
       })
       .catch((error) => {
         //reject the promise and pass the error object back to the form

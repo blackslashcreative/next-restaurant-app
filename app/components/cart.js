@@ -1,12 +1,15 @@
-import { FaOpencart } from "react-icons/fa";
+'use client';
 import { useAppContext } from '../appContext';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import Link from 'next/link';
-import Image from 'next/image';
+import { FaOpencart } from "react-icons/fa";
+import { usePathname } from 'next/navigation';;
 
 function Cart() {
   let isAuthenticated = true; // ???
   const { user, cart, addItem, removeItem } = useAppContext();
+
+  const pathname = usePathname();
 
   // Render items in cart
   const renderItems = () => {
@@ -41,7 +44,7 @@ function Cart() {
   }
 
   const checkoutItems = () => {
-    const buttonLink = user ? "/checkout" : "/login";
+    const buttonLink = user ? "/checkout" : "/register?redirect=" + pathname;
     return (
       <div className="cart-footer">
       <Link href={buttonLink}>
