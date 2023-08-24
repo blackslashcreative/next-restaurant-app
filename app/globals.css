@@ -98,7 +98,7 @@ p > a {
 }
 
 .navbar-brand img {
-  @apply mx-auto
+  @apply mx-auto inline
 }
 
 .navbar li, 

@@ -2,7 +2,7 @@
 import { Container, Nav, NavItem } from 'reactstrap';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import Logo from '../../public/img/logo-white.svg';
+import Logo from '../../public/img/byte-logo-trans.png';
 import Image from 'next/image';
 import { useAppContext } from '../appContext';
 import Cookie from "js-cookie";
@@ -27,8 +27,8 @@ function Navigation() {
           <Link href="/" className="navbar-brand">
             <Image
               src={Logo}
-              width={50}
-              height={50}
+              width={40}
+              height={40}
               alt="Restaurant App Logo"
             /> nybble
           </Link>
