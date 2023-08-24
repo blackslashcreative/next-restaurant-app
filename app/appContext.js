@@ -52,11 +52,13 @@ export const AppContextProvider = ({ children }) => {
   const resetCart = (logout) => {
     if (!logout) {
       setOrderConfirmed(true);
+
     }
     setCartState({ cart: {items: [], total: 0 }});
   };
 
   const addItem = (item) => {
+    setOrderConfirmed(false);
     let { items } = cartState.cart;
     // check if item already in cart, or add it
     let foundItem = true;

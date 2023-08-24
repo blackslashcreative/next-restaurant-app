@@ -6,6 +6,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useAppContext } from "../appContext";
 import { useRouter } from "next/navigation";
 import { useInitialRender } from "../utils/useInitialRender";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 const options = {
   style: {
@@ -221,7 +222,7 @@ export default function CheckoutForm() {
         <div>
           {data.error && (
             <div className="text-red-700 px-4 py-3 mt-2 rounded relative">
-              <strong className="font-bold">Error!</strong>{" "}
+              <AiOutlineExclamationCircle size={20}/>{" "}
               <span className="block sm:inline">{data.error.message}</span>
             </div>
           )}

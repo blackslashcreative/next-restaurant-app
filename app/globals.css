@@ -178,7 +178,8 @@ a:hover, .nav-link:hover {
   @apply text-red-700
 }
 
-.form-footer-alert.errors svg {
+.form-footer-alert.errors svg, 
+div.text-red-700 svg {
   @apply inline-block mr-2
 }
 
@@ -194,6 +195,11 @@ div.error {
   text-transform: uppercase;
 }
 
+.ElementsApp, .ElementsApp .InputElement, 
+input.InputElement {
+  color: black !important;
+}
+
 
 /*********************************************************
  CART
@@ -204,7 +210,6 @@ div.error {
 
 #cart .card-body {
   @apply flex flex-col;
-  justify-content: space-between;
 }
 
 #cart .card-title {
@@ -294,6 +299,10 @@ div.error {
 
 .card {
   min-height: 395px;
+}
+
+.home .card {
+  min-height: auto;
 }
 
 .card img {
