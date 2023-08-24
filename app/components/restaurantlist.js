@@ -35,9 +35,6 @@ function RestaurantList(props) {
   
   //console.log(`searchQuery: ${searchQuery}`);
   if(searchQuery.length > 0){
-    // set ID for first restaurant
-    let restId = searchQuery[0].id;
-
     const restList = searchQuery.map((res) => (
       <Col xs="6" sm="4" key={res.id}>
         <Card>

@@ -1,6 +1,6 @@
 'use client';
 import { useAppContext } from '../appContext';
-import { Card, CardTitle, CardBody } from 'reactstrap';
+import { Card, CardTitle, CardBody, CardFooter } from 'reactstrap';
 import Link from 'next/link';
 import { FaOpencart } from "react-icons/fa";
 import { usePathname } from 'next/navigation';;
@@ -14,7 +14,6 @@ function Cart() {
   // Render items in cart
   const renderItems = () => {
     let {items} = cart;
-    console.log(`items: ${JSON.stringify(items)}`);
     
     if (!items.length) return <p className="empty-cart"><FaOpencart size={40}/><br/>Your cart is empty!</p>
 
@@ -62,8 +61,10 @@ function Cart() {
         <hr />
         <CardBody>
           {renderItems()}
-          {checkoutItems()}
         </CardBody>
+        <CardFooter>
+          {checkoutItems()}
+        </CardFooter>
       </Card>
     </section>
   )

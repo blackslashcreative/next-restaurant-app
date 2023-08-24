@@ -1,23 +1,13 @@
 import { useAppContext } from '../appContext';
 import { useQuery, gql } from '@apollo/client';
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { Container, Row, Card, CardBody, CardImg, CardText, Col, CardFooter} from 'reactstrap';
 
-import {
-  // button
-  Card, 
-  CardBody,
-  CardImg,
-  CardText,
-  CardTitle,
-  Row,
-  Col, 
-  CardFooter} from 'reactstrap';
-function Dishes({restId}) {
-  const [restaurantID, setRestaurantID] = useState();
+
+function Dishes({restId, search}) {
+
   const { addItem } = useAppContext();
   
-  const GET_RESTAURANT_DISHES = gql`
+  const GET_RESTAURANT = gql`
   query getRestaurant($id: ID!) {
     restaurant(id: $id) {
       data {
@@ -45,53 +35,58 @@ function Dishes({restId}) {
       }
     }
   }`;
-  // console.log(`restaurant = ${restaurantID}`);
-  const router = useRouter();
 
-  const { loading, error, data } = useQuery(GET_RESTAURANT_DISHES, {
-    variables: { id: restId },
+  const { loading, error, data } = useQuery(GET_RESTAURANT, {
+    variables: { id: restId},
   });
-  //console.log("Data...");
-  //console.log(data);
-  if (loading) return <p>Loading...</p>;
-  if (error) {
-    console.log(error); 
-    return <p>ERROR</p>;
-  }
+  if (loading) return <p className="loading">Loading...</p>;
+  if (error)   return <p>ERROR</p>;
   if (!data)   return <p>Nothing found...</p>;
 
-  let restaurant = data.restaurant.data;
-  // console.log(`restId: ${restId}`);
-  if (restId > 0) {
+  const dishes = data.restaurant.data.attributes.Dishes;
+
+  const searchResults = dishes.data.filter((dish) => 
+    dish.attributes.Name.toLowerCase().includes(search)
+  );
+
+  if(searchResults.length > 0){
+
+    const listDishes = searchResults.map((dish) => (
+      <Col md="3" key={dish.id}>
+        <Card>
+          <CardImg 
+            top={true}
+            style={{height:200}}
+            src={`http://localhost:1337` + dish.attributes.Image.data.attributes.url}
+          />
+          <CardBody>
+            <h2>{dish.attributes.Name}</h2>
+            <CardText>{dish.attributes.Description}</CardText>
+          </CardBody>
+          <CardFooter>
+            <button
+              onClick={() => { addItem(dish) }}
+            >
+              Add To Cart
+            </button>
+          </CardFooter>
+        </Card>
+      </Col>
+    ))
     return (
-      <>
-      {restaurant.attributes.Dishes.data.map((res) => (
-        <Col md="3" key={res.id}>
-          <Card>
-            <CardImg
-              top={true}
-              style={{height:200}}
-              src={`http://localhost:1337${res.attributes.Image.data.attributes.url}`}
-            />
-            <CardBody>
-              <CardTitle><h2>{res.attributes.Name}</h2></CardTitle>
-              <CardText>{res.attributes.Description}</CardText>
-            </CardBody>
-            <CardFooter>
-              <button
-                onClick={() => { addItem(res) }}
-              >
-                Add To Cart
-              </button>
-            </CardFooter>
-          </Card>
-        </Col>
-      ))}
-      </>
+      <>{listDishes}</>
     )
-  }
-  else {
-    return <p>No dishes found.</p>
+
+  } else {
+
+    return (
+      <Container className="p-0">
+        <Row>
+          Nothing found...
+        </Row>
+      </Container>
+    )
+
   }
 }
 

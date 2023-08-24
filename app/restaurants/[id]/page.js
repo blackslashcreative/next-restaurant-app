@@ -1,8 +1,9 @@
 'use client';
 import { useQuery, gql } from '@apollo/client';
+import { useState } from 'react';
 import Dishes from '../../components/dishes';
 import Cart from '../../components/cart';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, InputGroup, Input } from 'reactstrap';
 
 export default function Restaurant({params}) {
 
@@ -12,29 +13,14 @@ export default function Restaurant({params}) {
       data {
         id
         attributes {
-          Name
-          Dishes {
-            data {
-              id
-              attributes {
-                Name
-                Description
-                Price
-                Image {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
+          Name,
+          Description
         }
       }
     }
   }`;
-  // console.log(`restaurant = ${params.id}`);
+  
+  const [query, setQuery] = useState("");
   const { loading, error, data } = useQuery(GET_RESTAURANT, {
     variables: { id: params.id },
   });
@@ -49,12 +35,24 @@ export default function Restaurant({params}) {
 
   return (
     <main className="container">
-      <h1>{restaurant.attributes.Name}</h1>
+      <div className="search">
+        <h1>{restaurant.attributes.Name}</h1>
+        <InputGroup>
+          <Input
+            placeholder="Type to search for something to nybble on..."
+            type="text"
+            value={query}
+            onChange={(e) =>
+              setQuery(e.target.value.toLocaleLowerCase())
+            }
+          />
+        </InputGroup> 
+      </div>
       <Row>
-        <Dishes restId={params.id}/>
         <Col md="3" key="cart">
           <Cart/>
         </Col>
+        <Dishes restId={params.id} search={query}/>
       </Row>
     </main>
   )

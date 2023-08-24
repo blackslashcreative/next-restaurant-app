@@ -198,15 +198,17 @@ div.error {
 /*********************************************************
  CART
 *********************************************************/
-#cart {
-  @apply mt-12
+#cart .card {
+  min-height: 395px;
 }
 
-#cart .card, .home .card {
-  min-height: auto;
+#cart .card-body {
+  @apply flex flex-col;
+  justify-content: space-between;
 }
 
 #cart .card-title {
+  border-radius: 3px 3px 0 0;
   @apply bg-purple-950 font-medium text-lg text-white mb-0 pb-2
 }
 
@@ -220,7 +222,7 @@ div.error {
 }
 
 .empty-cart {
-  @apply text-gray-600 text-center mt-4 mb-8
+  @apply text-gray-600 text-center mt-16 mb-8
 }
 
 .empty-cart svg, 
@@ -244,10 +246,6 @@ div.error {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.cart-footer {
-  @apply mt-6
 }
 
 .cart-footer h5 {
@@ -280,6 +278,10 @@ div.error {
 
 .order-confirmed {
   @apply text-center text-xl
+}
+
+.cart-footer button {
+  @apply bg-green-500 hover:bg-green-600
 }
 
 

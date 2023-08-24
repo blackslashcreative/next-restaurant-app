@@ -74,7 +74,7 @@ export default function Login() {
                         })
                         .catch((error) => {
                           if (error.response.data.error.message === 'Invalid identifier or password') {
-                            error.response.data.error.details = {"errors":[{"message":"Please check your password and try again"}]};
+                            error.response.data.error.details = {"errors":[{"message":"Please check your info and try again"}]};
                           }
                           setError(error.response.data);
                           setLoading(false);
