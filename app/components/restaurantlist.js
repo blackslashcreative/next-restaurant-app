@@ -23,21 +23,17 @@ function RestaurantList(props) {
       }
     }
   }`;
-  const { loading, error, data } = useQuery(GET_RESTAURANTS); // DONE?
+  const { loading, error, data } = useQuery(GET_RESTAURANTS);
   if (loading) return <p className="loading">Loading...</p>;
   if (error)   return <p>ERROR</p>;
   if (!data)   return <p>Nothing found...</p>;
   //console.log(data.restaurants.data);
 
-  const searchQuery = data.restaurants.data.filter((res) => 
-   res.attributes.Name.toLowerCase().includes(props.search)
-  );
-
-  const handleNavigation = () => {
-    setRestaurantID(99);
-  }
+    const searchQuery = data.restaurants.data.filter((res) => 
+    res.attributes.Name.toLowerCase().includes(props.search)
+    );
   
-  console.log(`searchQuery: ${searchQuery}`);
+  //console.log(`searchQuery: ${searchQuery}`);
   if(searchQuery.length > 0){
     // set ID for first restaurant
     let restId = searchQuery[0].id;
@@ -68,6 +64,14 @@ function RestaurantList(props) {
       <Container className="p-0">
         <Row>
           {restList}
+        </Row>
+      </Container>
+    )
+  } else {
+    return (
+      <Container className="p-0">
+        <Row>
+          Nothing found...
         </Row>
       </Container>
     )
