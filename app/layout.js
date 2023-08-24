@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Navigation from './components/navigation';
+import Footer from './components/footer';
 import client from './client';
 import { ApolloProvider } from '@apollo/client';
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
             {children}
           </ApolloProvider>
         </AppContextProvider>
+        <Footer/>
       </body>
     </html>
   )
