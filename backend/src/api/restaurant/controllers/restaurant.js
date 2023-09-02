@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * restaurant controller
+ *  restaurant controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;

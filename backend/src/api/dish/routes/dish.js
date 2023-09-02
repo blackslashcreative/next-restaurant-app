@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * dish router
+ * dish router.
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;

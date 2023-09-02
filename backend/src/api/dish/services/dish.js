@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * dish service
+ * dish service.
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;

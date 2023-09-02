@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * dish controller
+ *  dish controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;

@@ -30,7 +30,8 @@
     "Dishes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::dish.dish"
+      "target": "api::dish.dish",
+      "mappedBy": "restaurant"
     }
   }
 }

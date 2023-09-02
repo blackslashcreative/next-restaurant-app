@@ -4,7 +4,8 @@
   "info": {
     "singularName": "dish",
     "pluralName": "dishes",
-    "displayName": "Dishes"
+    "displayName": "Dishes",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,11 +24,18 @@
       "required": true
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "restaurant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::restaurant.restaurant",
+      "inversedBy": "Dishes"
     }
   }
 }

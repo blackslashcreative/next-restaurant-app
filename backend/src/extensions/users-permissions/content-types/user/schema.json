@@ -34,20 +34,17 @@
       "type": "password",
       "minLength": 6,
       "configurable": false,
-      "private": true,
-      "searchable": false
+      "private": true
     },
     "resetPasswordToken": {
       "type": "string",
       "configurable": false,
-      "private": true,
-      "searchable": false
+      "private": true
     },
     "confirmationToken": {
       "type": "string",
       "configurable": false,
-      "private": true,
-      "searchable": false
+      "private": true
     },
     "confirmed": {
       "type": "boolean",

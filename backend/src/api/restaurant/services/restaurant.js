@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * restaurant service
+ * restaurant service.
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
