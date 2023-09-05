@@ -57,7 +57,7 @@ function Dishes({restId, search}) {
           <CardImg 
             top={true}
             style={{height:200}}
-            src={`http://localhost:1337` + dish.attributes.Image.data.attributes.url}
+            src={`https://strapi-kc1z.onrender.com` + dish.attributes.Image.data.attributes.url}
           />
           <CardBody>
             <h2>{dish.attributes.Name}</h2>

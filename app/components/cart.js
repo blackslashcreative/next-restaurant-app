@@ -26,7 +26,7 @@ function Cart() {
           >
             <div className="cart-image">
               <img 
-                src={`http://localhost:1337${item.attributes.Image.data.attributes.url}`} 
+                src={`https://strapi-kc1z.onrender.com${item.attributes.Image.data.attributes.url}`} 
                 alt={`Picture of ${item.attributes.Name}`}
               />
             </div>

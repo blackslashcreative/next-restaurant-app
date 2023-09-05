@@ -41,7 +41,7 @@ function RestaurantList(props) {
           <CardImg 
             top={true}
             style={{height:200}}
-            src={`http://localhost:1337` + res.attributes.Image.data.attributes.url}
+            src={`https://strapi-kc1z.onrender.com` + res.attributes.Image.data.attributes.url}
           />
           <CardBody>
             <Link 
