@@ -13,6 +13,7 @@ export default function Login() {
   const [data, updateData] = useState({ identifier: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const { setSuccessMessage } = useAppContext();
   
   const router = useRouter();
   useEffect(() => {
@@ -69,6 +70,7 @@ export default function Login() {
                           setLoading(false);
                           // set authed User in global context to update header/app state
                           setUser(res.data.user);
+                          setSuccessMessage('You\'re logged in!');
                           // Redirect to previous page
                           router.push(loginRedirectLink);
                         })
