@@ -70,7 +70,7 @@ export default function Login() {
                           setLoading(false);
                           // set authed User in global context to update header/app state
                           setUser(res.data.user);
-                          setSuccessMessage('You\'re logged in!');
+                          setSuccessMessage(`You're logged in!`);
                           // Redirect to previous page
                           router.push(loginRedirectLink);
                         })
