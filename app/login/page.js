@@ -8,12 +8,11 @@ import { useSearchParams } from 'next/navigation';
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 export default function Login() {
-  const { user, setUser } = useAppContext();
+  const { user, setUser, setSuccessMessage } = useAppContext();
 
   const [data, updateData] = useState({ identifier: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const { setSuccessMessage } = useAppContext();
   
   const router = useRouter();
   useEffect(() => {
